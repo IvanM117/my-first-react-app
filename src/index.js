@@ -4,6 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//ejercicio reloj
+/*
+function clock() {
+  const element = (
+    <div>
+      <h1>La hora es: { new Date().toLocaleTimeString()} </h1>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById("root"));
+}
+setInterval(clock, 1000);
+*/
 ReactDOM.render(
   <React.StrictMode>
     <App />
