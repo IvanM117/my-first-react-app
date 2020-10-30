@@ -3,6 +3,8 @@ import './App.css';
 
 //components
 import Greet from './components/Greet'
+import Counter from './components/Counter' // no olvidar importar componentes
+import ToogleColor from'./components/ToogleColor'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         </a>
       </header>
       <Greet name="Ivan" />
+      <Counter/>
+      <ToogleColor/>
     </div>
   );
 }
