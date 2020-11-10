@@ -1,0 +1,9 @@
+.postContainer{
+    border: solid;
+    border-color: cyan;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+    margin-left: 35vw;
+    
+}

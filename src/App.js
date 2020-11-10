@@ -7,8 +7,9 @@ import './App.css';
 //import Counter from './components/Counter' // no olvidar importar componentes
 //import ToogleColor from'./components/ToogleColor'
 //import ConditionalRendering from './components/ConditionalRendering'
-import MenuActivo from './components/MenuActivo'
+//import ActiveMenu from './components/ActiveMenu'
 //import Form from "./components/Form"; 
+import JsonPost from "./components/JsonPost";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <MenuActivo />
+      <JsonPost />
 
     </div>
   );

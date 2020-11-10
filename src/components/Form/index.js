@@ -1,35 +1,63 @@
 import React, { Component } from "react";
+
 class Form extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            MXNQuantity: 0,
-            USDQuantity: 0,
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      MXNQuantity: 0,
+      USDQuantity: 0,
+    };
 
-        this.handleChange = this.handleChange.bind(this); // aqui pasamos el this del padre
+    this.handleCurrencyChange = this.handleCurrencyChange.bind(this);
+  }
+
+  handleCurrencyChange({ target: { value, name } }) {
+    let MXNCurrentQuantity;
+    let USDCurrentQuantity;
+
+    if (name === "MXNQuantity") {
+      MXNCurrentQuantity = value;
+      USDCurrentQuantity = value / 21.6;
+    } else {
+      MXNCurrentQuantity = value * 21.6;
+      USDCurrentQuantity = value;
     }
 
-    handleChange( {target: { value } }) {
-        this.setState({
-            MXNQuantity: value,
-            USDQuantity: value / 21.6,
-        });
-    }
+    this.setState({
+      MXNQuantity: MXNCurrentQuantity,
+      USDQuantity: USDCurrentQuantity,
+    });
+  }
 
-
-    render() {
-        const { MXNQuantity, USDQuantity } = this.state;
-        return (
-        <div> 
-            <form>
-                <input type="number" value={MXNQuantity} 
-                onChange={this.handleChange}/>
-            </form>
-            <p>USD: ${USDQuantity}</p>
-        </div>
-        );
-    }
+  render() {
+    const { MXNQuantity, USDQuantity } = this.state;
+    return (
+      <div>
+        <form
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+          onSubmit={this.handleSubmit}
+        >
+          MXN:{" "}
+          <input
+            type="number"
+            value={MXNQuantity}
+            onChange={this.handleCurrencyChange}
+            name="MXNQuantity"
+          />
+          USD:{" "}
+          <input
+            type="number"
+            value={USDQuantity}
+            onChange={this.handleCurrencyChange}
+            name="USDQuantity"
+          />
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Form;
